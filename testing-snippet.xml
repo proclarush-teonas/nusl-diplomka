@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1250"?>
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"> 
+ <responseDate>2013-04-23T13:45:50Z</responseDate>
+ <request verb="ListRecords">http://invenio.nusl.cz/oai2d/</request>
+ <ListRecords>
+  <record>
+   <header>
+    <identifier>oai:invenio.nusl.cz:136647</identifier>
+    <datestamp>2013-01-24T10:29:43Z</datestamp>
+    <setSpec>global</setSpec>
+   </header>
+   <metadata>
+<oai_dc:dc xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<dc:title>Aplikace Modelu excelence EFQM ve vybrané organizaci</dc:title>
+<dc:creator>ROZSYPALOVÁ, Antonie</dc:creator>
+<dc:subject>ČSÚ; kvalita; management kvality; TQM; EFQM; sebehodnocení; anketa; ČSÚ; quality; quality management; TQM; EFQM; self-image; survey</dc:subject>
+<dc:description>In the thesis there is described increasing importance of quality and quality management. One of the conception of quality management is Total quality management. The european method of TQM is the Excelence model EFQM. It´s an instrument for complex control of quality. The thesis describes an aplication of the model in ČSÚ and compares the results, which has the organization reached till 2002.</dc:description>
+<dc:date>2012-04-30</dc:date>
+<dc:type>info:eu-repo/semantics/masterThesis</dc:type>
+<dc:identifier>http://www.nusl.cz/ntk/nusl-136647</dc:identifier>
+<dc:language>cze</dc:language>
+</oai_dc:dc>   </metadata>
+  </record>
+</ListRecords>
+</OAI-PMH>  
