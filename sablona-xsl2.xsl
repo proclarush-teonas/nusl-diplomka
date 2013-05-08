@@ -1,7 +1,10 @@
 <xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" version='1.0'> 
-
+<xsl:output method="xml" indent="yes" />
 <xsl:template match='p:OAI-PMH'>
-<root xmlns:dc="http://purl.org/dc/elements/1.1/">
+  
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <rdf:Description>  
   <xsl:for-each select='//p:record'>
       <record>
         
@@ -38,7 +41,8 @@
               
       </record>
     </xsl:for-each>
-</root>
+  </rdf:Description>
+</rdf:RDF>
 </xsl:template>
 
   <xsl:template match="node()">
