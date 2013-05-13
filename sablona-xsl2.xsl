@@ -2,7 +2,7 @@
 <xsl:output method="xml" indent="yes" />
 <xsl:template match='p:OAI-PMH'>
   
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/terms/">
 
     
   <xsl:for-each select='//p:record'>
