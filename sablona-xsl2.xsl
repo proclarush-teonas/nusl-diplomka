@@ -4,20 +4,26 @@
   
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
-  <rdf:Description>  
+    
   <xsl:for-each select='//p:record'>
-      <record>
-        
-        <dc:identifier>
-          <xsl:apply-templates select="//p:identifier" />             
-        </dc:identifier>
-        <dc:identifier>
-          <xsl:apply-templates select="//dc:identifier" />
-        </dc:identifier>
-        <dc:date type="datestamp">
-          <xsl:apply-templates select="//p:datestamp" />            
-        </dc:date>                  
-        <dc:title>
+    <rdf:Description rdf:about="{//p:identifier}">
+      <datestamp>
+        <xsl:apply-templates select="//p:datestamp" />            
+      </datestamp>
+      <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+        <xsl:variable name="datum">
+          <xsl:apply-templates select="//p:datestamp" />
+        </xsl:variable>
+        <xsl:value-of select="substring-before($datum,'T')"/>
+                    
+      </dc:date>
+    </rdf:Description>
+            
+    <rdf:Description rdf:about="{//dc:identifier}">
+      <dc:identifier>
+        <xsl:apply-templates select="//p:identifier" />
+      </dc:identifier>
+      <dc:title>
           <xsl:apply-templates select="//dc:title" />
         </dc:title>
         <dc:creator>
@@ -29,7 +35,7 @@
         <dc:description>
           <xsl:apply-templates select="//dc:description" />
         </dc:description>
-        <dc:date type="created">
+      <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
           <xsl:apply-templates select="//dc:date" />
         </dc:date>
         <dc:type>
@@ -37,11 +43,10 @@
         </dc:type>
         <dc:language>
           <xsl:apply-templates select="//dc:language" />
-        </dc:language>          
-              
-      </record>
+        </dc:language>      
+    </rdf:Description>
     </xsl:for-each>
-  </rdf:Description>
+  
 </rdf:RDF>
 </xsl:template>
 
