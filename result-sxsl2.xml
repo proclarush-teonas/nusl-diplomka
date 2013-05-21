@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/terms/">
    <rdf:Description rdf:about="oai:invenio.nusl.cz:136647">
-      <datestamp>2013-01-24T10:29:43Z</datestamp>
+      <dc:datetime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">2013-01-24T10:29:43Z</dc:datetime>
       <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-01-24</dc:date>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.nusl.cz/ntk/nusl-136647">
@@ -10,7 +11,7 @@
       <dc:creator>ROZSYPALOVÁ, Antonie</dc:creator>
       <dc:subject>ÈSÚ; kvalita; management kvality; TQM; EFQM; sebehodnocení; anketa; ÈSÚ; quality; quality management; TQM; EFQM; self-image; survey</dc:subject>
       <dc:description>In the thesis there is described increasing importance of quality and quality management. One of the conception of quality management is Total quality management. The european method of TQM is the Excelence model EFQM. It´s an instrument for complex control of quality. The thesis describes an aplication of the model in ÈSÚ and compares the results, which has the organization reached till 2002.</dc:description>
-      <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-04-30</dc:date>
+      <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-04-30</dc:created>
       <dc:type>info:eu-repo/semantics/masterThesis</dc:type>
       <dc:language>cze</dc:language>
    </rdf:Description>
