@@ -3,52 +3,68 @@
 
   <xsl:template match='p:OAI-PMH'>
   <rdf:RDF>
-    <xsl:apply-templates select="/*:OAI-PMH/*:ListRecords/p:record" />    
+    <xsl:apply-templates select="p:ListRecords" />    
   </rdf:RDF>
   </xsl:template>
   
+  <xsl:template match="p:ListRecords">
+    <xsl:apply-templates select="p:record" />
+  </xsl:template>
   
-  <xsl:template match="p:record">
-    <rdf:Description rdf:about="{/*:OAI-PMH/*:ListRecords/*:record/*:header/p:identifier}">
+  
+  <xsl:template match="p:record">    
+    <xsl:apply-templates select="p:header" />    
+    <xsl:apply-templates select="p:metadata/oai_dc:dc" />
+  </xsl:template>
+  
+  <xsl:template match="p:header">    
+    <rdf:Description rdf:about="{p:identifier}">
+      <dc:identifier>
+        <xsl:value-of select="p:identifier" />
+      </dc:identifier>
       <dc:datetime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">
-        <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:header/p:datestamp" />            
+        <xsl:value-of select="p:datestamp" />            
       </dc:datetime>
       <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
         <xsl:variable name="datum">
-          <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:header/p:datestamp" />
+          <xsl:value-of select="p:datestamp" />
         </xsl:variable>
         <xsl:value-of select="substring-before($datum,'T')"/>
-                    
+        
       </dc:date>
     </rdf:Description>
-            
-    <rdf:Description rdf:about="{/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:identifier}">
+  </xsl:template>
+  
+  <xsl:template match="p:metadata/oai_dc:dc">
+    <rdf:Description rdf:about="{dcc:identifier}">
       <dc:identifier>
-        <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:header/p:identifier" />
+        <xsl:value-of select="dcc:identifier" />
       </dc:identifier>
       <dc:title>
-        <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:title" />
-        </dc:title>
-        <dc:creator>
-          <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:creator" />
-        </dc:creator>
-        <dc:subject>
-          <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:subject" />
-        </dc:subject>
-        <dc:description>
-          <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:description" />
-        </dc:description>
+        <xsl:value-of select="dcc:title" />
+      </dc:title>
+      <dc:creator>
+        <xsl:value-of select="dcc:creator" />
+      </dc:creator>
+      <dc:subject>
+        <xsl:value-of select="dcc:subject" />
+      </dc:subject>
+      <dc:description>
+        <xsl:value-of select="dcc:description" />
+      </dc:description>
       <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
-        <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:date" />
-        </dc:created>
-        <dc:type>
-          <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:type" />
-        </dc:type>
-        <dc:language>
-          <xsl:value-of select="/*:OAI-PMH/*:ListRecords/*:record/*:metadata/*:dc/dcc:language" />
-        </dc:language>      
-    </rdf:Description>  
-</xsl:template>
-  
+        <xsl:value-of select="dcc:date" />
+      </dc:created>
+      <dc:type>
+        <xsl:value-of select="dcc:type" />
+      </dc:type>
+      <dc:language>
+        <xsl:value-of select="dcc:language" />
+      </dc:language>
+    </rdf:Description> 
+  </xsl:template>
+    
+ 
+
 
 </xsl:stylesheet>
