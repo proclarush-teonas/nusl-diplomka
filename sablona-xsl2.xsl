@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/"  version='2.0' exclude-result-prefixes="p oai_dc dcc"> 
+<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:biro="http://purl.org/spar/biro/"  version='2.0' exclude-result-prefixes="p oai_dc dcc"> 
 <xsl:output method="xml" indent="yes" encoding="utf-8" />
 
   <xsl:template match='p:OAI-PMH'>
@@ -19,13 +19,13 @@
   </xsl:template>
   
   <xsl:template match="p:header">    
-    <rdf:Description rdf:about="{p:identifier}">
+    <biro:BibliographicReference rdf:about="{p:identifier}">
       <dcterms:identifier>
         <xsl:value-of select="p:identifier" />
       </dcterms:identifier>
-      <dcterms:datetime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">
+      <xsd:datetime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">
         <xsl:value-of select="p:datestamp" />            
-      </dcterms:datetime>
+      </xsd:datetime>
       <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
         <xsl:variable name="datum">
           <xsl:value-of select="p:datestamp" />
@@ -33,11 +33,11 @@
         <xsl:value-of select="substring-before($datum,'T')"/>
         
       </dcterms:date>
-    </rdf:Description>
+    </biro:BibliographicReference>
   </xsl:template>
   
   <xsl:template match="p:metadata/oai_dc:dc">
-    <rdf:Description rdf:about="{dcc:identifier}">
+    <biro:BibliographicRecord rdf:about="{dcc:identifier}">
       <dcterms:identifier>
         <xsl:value-of select="dcc:identifier" />
       </dcterms:identifier>
@@ -62,7 +62,7 @@
       <dcterms:language>
         <xsl:value-of select="dcc:language" />
       </dcterms:language>
-    </rdf:Description> 
+    </biro:BibliographicRecord> 
   </xsl:template>
     
  <xsl:template match="dcc:subject">
@@ -70,7 +70,7 @@
      <xsl:value-of select="." />
    </xsl:variable>
    
-   <xsl:for-each select="tokenize($subject, ';')">
+   <xsl:for-each select="distinct-values(tokenize($subject, '; '))">
      <dcterms:subject>
        <xsl:value-of select="." />
      </dcterms:subject>
