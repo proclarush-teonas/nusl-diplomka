@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:dcterms="http://purl.org/dc/terms/"
-         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-         xmlns:biro="http://purl.org/spar/biro/">
-   <biro:BibliographicReference rdf:about="oai:invenio.nusl.cz:136647">
-      <dcterms:identifier>oai:invenio.nusl.cz:136647</dcterms:identifier>
-      <xsd:datetime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">2013-01-24T10:29:43Z</xsd:datetime>
+         xmlns:biro="http://purl.org/spar/biro/"
+         xmlns:ld="http://ld.opendata.cz/resource/nusl-biro/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+   <biro:BibliographicRecord rdf:about="ld:record#136647">
+      <dcterms:identifier>ld:reference#136647</dcterms:identifier>
+      <dcterms:created rdf:datatype="http://www.w3.org/TR/xmlschema-2/#dateTime">2013-01-24T10:29:43Z</dcterms:created>
       <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-01-24</dcterms:date>
-   </biro:BibliographicReference>
-   <biro:BibliographicRecord rdf:about="http://www.nusl.cz/ntk/nusl-136647">
-      <dcterms:identifier>http://www.nusl.cz/ntk/nusl-136647</dcterms:identifier>
+   </biro:BibliographicRecord>
+   <biro:BibliographicReference rdf:about="ld:reference#136647">
+      <dcterms:identifier>ld:document#136647</dcterms:identifier>
+      <rdfs:seeAlso>http://www.nusl.cz/ntk/nusl-136647</rdfs:seeAlso>
       <dcterms:title>Aplikace Modelu excelence EFQM ve vybrané organizaci</dcterms:title>
       <dcterms:creator>ROZSYPALOVÁ, Antonie</dcterms:creator>
       <dcterms:subject>ČSÚ</dcterms:subject>
@@ -27,14 +29,15 @@
       <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-04-30</dcterms:created>
       <dcterms:type>info:eu-repo/semantics/masterThesis</dcterms:type>
       <dcterms:language>cze</dcterms:language>
-   </biro:BibliographicRecord>
-   <biro:BibliographicReference rdf:about="oai:invenio.nusl.cz:137147">
-      <dcterms:identifier>oai:invenio.nusl.cz:137147</dcterms:identifier>
-      <xsd:datetime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">2013-01-24T10:30:12Z</xsd:datetime>
-      <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-01-24</dcterms:date>
    </biro:BibliographicReference>
-   <biro:BibliographicRecord rdf:about="http://www.nusl.cz/ntk/nusl-137147">
-      <dcterms:identifier>http://www.nusl.cz/ntk/nusl-137147</dcterms:identifier>
+   <biro:BibliographicRecord rdf:about="ld:record#137147">
+      <dcterms:identifier>ld:reference#137147</dcterms:identifier>
+      <dcterms:created rdf:datatype="http://www.w3.org/TR/xmlschema-2/#dateTime">2013-01-24T10:30:12Z</dcterms:created>
+      <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-01-24</dcterms:date>
+   </biro:BibliographicRecord>
+   <biro:BibliographicReference rdf:about="ld:reference#137147">
+      <dcterms:identifier>ld:document#137147</dcterms:identifier>
+      <rdfs:seeAlso>http://www.nusl.cz/ntk/nusl-137147</rdfs:seeAlso>
       <dcterms:title>Spolupráce vybraného města s místními podniky</dcterms:title>
       <dcterms:creator>SMRŽOVÁ, Jana</dcterms:creator>
       <dcterms:subject>Veřejná správa</dcterms:subject>
@@ -49,5 +52,5 @@
       <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-04-30</dcterms:created>
       <dcterms:type>info:eu-repo/semantics/bachelorThesis</dcterms:type>
       <dcterms:language>cze</dcterms:language>
-   </biro:BibliographicRecord>
+   </biro:BibliographicReference>
 </rdf:RDF>
