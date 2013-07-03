@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/" xmlns:biro="http://purl.org/spar/biro/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:ld="http://ld.opendata.cz/resource/nusl" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"  version='2.0' exclude-result-prefixes="p oai_dc dcc"> 
+<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/" xmlns:biro="http://purl.org/spar/biro/" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:ld="http://ld.opendata.cz/resource/nusl" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"  version='2.0' exclude-result-prefixes="p oai_dc dcc"> 
 <xsl:output method="xml" indent="yes" encoding="utf-8" />
   <xsl:variable name="myuri">http://ld.opendata.cz/resource/nusl/</xsl:variable>
   <xsl:variable name="myrec">bibliographic-record/</xsl:variable>
@@ -34,9 +34,7 @@
       <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">
         <xsl:value-of select="p:datestamp" />            
       </dcterms:created>
-      <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">        
-        <xsl:value-of select="substring-before(p:datestamp,'T')"/>        
-      </dcterms:date>
+     
     </biro:BibliographicRecord>
   </xsl:template>
   
@@ -44,36 +42,24 @@
     <xsl:variable name="ajdy">
       <xsl:value-of select="substring-after(dcc:identifier, '-')" />
     </xsl:variable>        
-    <frbr:Expression rdf:about="{$myuri}{$myexp}{$ajdy}">
-      <dcterms:identifier>        
-        <xsl:value-of select="$ajdy" />  
-      </dcterms:identifier>      
+    <bibo:Document rdf:about="{$myuri}{$myexp}{$ajdy}">            
       <biro:isReferencedBy rdf:resource="{$myuri}{$myrec}{$ajdy}" />
       
       <rdfs:seeAlso rdf:resource="{dcc:identifier}" />
       
       <dcterms:title>
         <xsl:value-of select="dcc:title" />
-      </dcterms:title>
-      <frbr:subject>
-        <xsl:value-of select="dcc:title" />
-      </frbr:subject>
+      </dcterms:title>      
       
       <dcterms:creator>
         <xsl:value-of select="dcc:creator" />
-      </dcterms:creator>
-      <frbr:realizer>
-        <xsl:value-of select="dcc:creator" />
-      </frbr:realizer>
+      </dcterms:creator>      
       
       <xsl:apply-templates select="dcc:subject" />
       
       <dcterms:description>
         <xsl:value-of select="dcc:description" />
-      </dcterms:description>
-      <frbr:summarization>
-        <xsl:value-of select="dcc:description" />
-      </frbr:summarization>
+      </dcterms:description>      
       
       <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
         <xsl:value-of select="dcc:date" />
@@ -85,7 +71,7 @@
       <dcterms:language>
         <xsl:value-of select="dcc:language" />
       </dcterms:language>
-    </frbr:Expression> 
+    </bibo:Document> 
   </xsl:template>
     
  <xsl:template match="dcc:subject">
