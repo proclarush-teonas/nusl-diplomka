@@ -47,7 +47,8 @@ function run($odkdy){
 
 }
 
-//pridat funkci druhy parametr a pridat podminku na jeho prazdnost .. plus do query pridat from parametr
+//funkce nacitajici zaznamy z nuslu, budto od zacatku, 
+//nebo od mista predchoziho ukonceni podle resumption tokenu, nebo od daneho casu (v pripade aktualizace)
 function getdata($token, $cas){
   if(strlen($token)>0){                                                                                     
     $base = file_get_contents("http://invenio.nusl.cz/oai2d?verb=ListRecords&resumptionToken=". $token);    
