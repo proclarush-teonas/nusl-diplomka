@@ -1,0 +1,4 @@
+<?xml version="1.0"?><!DOCTYPE root SYSTEM "sample.dtd">
+<?xml-stylesheet type="application/xslt+xml" href="../stylesheets/param.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../stylesheets/simple.xsl"?>
+<root at="yeah"> This is<child xml:space="preserve"> <descendant> </descendant></child>a simple well formed <child>  <descendant>XML </descendant> </child>document. </root>
