@@ -1,0 +1,46 @@
+token nebyl zapsan do souboru!  - 2014-02-25
+token nebyl zapsan do souboru!  - 2014-02-25
+data ulozena do souboru: 1393333930.xml
+HTTP/1.1 401 Unauthorized
+Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+Connection: close
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 25 Feb 2014 13:12:12 GMT
+Accept-Ranges: bytes
+WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="91bdf6c91d19946af9bb582329328cc6", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
+Content-Length: 0
+
+HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 25 Feb 2014 13:12:12 GMT
+Accept-Ranges: bytes
+Content-Length: 0
+
+************** 
+token pouzity ke stazeni dat  - 9c054521528fe8b6e77daeb3df3727cb
+data ulozena do souboru: 1393334060.xml
+HTTP/1.1 401 Unauthorized
+Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+Connection: close
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 25 Feb 2014 13:14:21 GMT
+Accept-Ranges: bytes
+WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="8208d39d0545a415b9aec7644f1e2ea5", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
+Content-Length: 0
+
+HTTP/1.1 100 Continue
+
+HTTP/1.1 200 OK
+Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 25 Feb 2014 13:14:22 GMT
+Accept-Ranges: bytes
+Content-Length: 0
+
+************** 
+nepovedlo se ziskat data!  - 2014-02-25

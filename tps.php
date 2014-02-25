@@ -6,6 +6,12 @@
 // prikaz __DR__ vyzaduje pouziti php verse 5.3 a vyssi
 include (__DIR__. "/xml/XSLT2Processor.php");
 
+
+// include souboru pro upload dat do virtuosa
+include "upload.php";
+
+
+
 //priprava na parametr posledni aktualizace - pravdepodobne si budu ukladat do souboru cas posledni zmeny, a potom si ho nactu
 $odkdy = time() - (60*60*24*7);
 //$odkdy = file_get_contents("lastakt.txt");
@@ -22,30 +28,49 @@ function run($odkdy){
   }
   if (strlen($rtoken)>0){    
     $data = getdata($rtoken, "");
+    file_put_contents("logfile.txt", "token pouzity ke stazeni dat  - " . $rtoken . "\n", FILE_APPEND);
   }
   //do else bude vstupovat prubezna aktualizace, musi byt pouzit parametr 'from' v requestu na nusl
   //po transformaci cele databaze by se mela postarat funkce accept o smazani souboru resumptiontoken.txt
   else {     
-    //$data = getdata("");
+    //odkomentovat na uplne prvni spusteni    !!!!!!!!!!!!!!!!!
+    //$data = getdata("", "");
     $data = getdata("", $odkdy);
   }
 
   //podminka ktera po nacteni dat zapise do souboru atualni resumption token, nebo pokud neexistuje, tak soubor smaze
-  if(!accept($data)){
-    echo "token nebyl zapsan do souboru!";    
+  if(!accept($data)){    
+    file_put_contents("logfile.txt", "token nebyl zapsan do souboru!  - " . date('Y-m-d') . "\n", FILE_APPEND);
+    exit;    
   }
-  //pojmenovani souboru tak, aby kazdy mel jine jmeno, zatim pomoci casove znamky. mozna je treba zmenit kvuli nacitani do virtuosa
+  //pojmenovani souboru tak, aby kazdy mel jine jmeno, zatim pomoci casove znamky. 
+  //ukladani je pouze pro informaci a zalohu, protoze se rovnou uploadnou do virtuosa 
   $file = time() . ".xml";
   
   //podminka volajici funkci write, ktera zapise do souboru data transformovana funkci xsltprocess  
   if(!write(xsltprocess($data), $file)){
-    echo "neprobehl zapis dat do souboru!";
+    file_put_contents("logfile.txt", "neprobehl zapis dat do souboru!  - " . date('Y-m-d') . "\n", FILE_APPEND);
+    exit;
   }
   else {
-    echo "vsechno probehlo v poradku";
+    file_put_contents("logfile.txt", "data ulozena do souboru: " . $file . "\n", FILE_APPEND);
   }
+  
+  //nastaveni parametru pro upload a jeho spusteni
+  uploadinit($file);
 
 }
+
+//ve funkci se nastavuji parametry uploadu dat
+function uploadinit($file){
+  $endpoint =  "http://localhost:8890/sparql-graph-crud-auth";
+  $user = "dba";
+  $pword = "dba";
+  $data = file_get_contents(__DIR__ . "\\" . $file);
+  $graph = "urn:test";
+  
+  upload($endpoint, $user, $pword, $data, $graph);
+  }
 
 //funkce nacitajici zaznamy z nuslu, budto od zacatku, 
 //nebo od mista predchoziho ukonceni podle resumption tokenu, nebo od daneho casu (v pripade aktualizace)
@@ -66,7 +91,7 @@ function getdata($token, $cas){
    return $base;  
   }
   else {
-   echo "nepovedlo se ziskat data!";
+   file_put_contents("logfile.txt", "nepovedlo se ziskat data!  - " . date('Y-m-d') . "\n", FILE_APPEND);
    exit;
   }
 
@@ -121,7 +146,7 @@ function xsltprocess($xmlnodes){
     return $result;
   }
   else {
-    echo "neprobehla transformace!";
+    file_put_contents("logfile.txt", "neprobehla transformace!  - " . date('Y-m-d') . "\n", FILE_APPEND);
     exit;
   }
 }

@@ -1,12 +1,12 @@
 <?php
   
-  function upload() {
-    $graphStoreEndpoint = "http://localhost:8890/sparql-graph-crud-auth";
-    $username = "dba";
-    $password = "dba";
+  function upload($endpoint, $user, $pword, $data, $graph) {
+    $graphStoreEndpoint = $endpoint;
+    $username = $user;
+    $password = $pword;
    
-    $fileContent = file_get_contents(__DIR__ . "\\" . "1380032528.xml");
-    $post_data = array("graph-uri" => "urn:test", "res-file" => $fileContent);     
+    $fileContent = $data;
+    $post_data = array("graph-uri" => $graph, "res-file" => $fileContent);     
 
     $options = array(
         CURLOPT_URL            => $graphStoreEndpoint,
@@ -26,11 +26,9 @@
     curl_setopt_array( $ch, $options );
 
     $response = curl_exec( $ch );
-    var_dump($response);
+    file_put_contents("logfile.txt", $response . "************** \n", FILE_APPEND);
     
   }
-
-upload();
 
 
 ?>
