@@ -63,12 +63,26 @@ function run($odkdy){
 
 //ve funkci se nastavuji parametry uploadu dat
 function uploadinit($file){
-  $endpoint =  "http://localhost:8890/sparql-graph-crud-auth";
-  $user = "dba";
-  $pword = "dba";
-  $data = file_get_contents(__DIR__ . "\\" . $file);
-  $graph = "urn:test";
+  if($configfile = fopen("config.ini", "r")){
+    
+    $endpointa = explode(" ", fgets($configfile));
+    $endpoint = $endpointa[1];    
+    $usera = explode(" ", fgets($configfile));
+    $user = $usera[1];    
+    $pworda = explode(" ", fgets($configfile));
+    $pword = $pworda[1];    
+    $grapha = explode(" ", fgets($configfile));
+    $graph = $grapha[1];      
+    fclose($configfile); 
+    
+    //data se nejakym zpusobem nepredavaji, nebo ve spatnem formatu. http response 401 (unauthorized)   
+  }
+  else {
+    file_put_contents("logfile.txt", "nepodarila se nacist konfigurace uploadu \n", FILE_APPEND);
+    exit;
+  }
   
+  $data = file_get_contents(__DIR__ . "\\" . $file);
   upload($endpoint, $user, $pword, $data, $graph);
   }
 
