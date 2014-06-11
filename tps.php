@@ -13,8 +13,9 @@ include "upload.php";
 
 
 //priprava na parametr posledni aktualizace - pravdepodobne si budu ukladat do souboru cas posledni zmeny, a potom si ho nactu
-$odkdy = time() - (60*60*24*7);
-//$odkdy = file_get_contents("lastakt.txt");
+//$odkdy = time() - (60*60*24*7);
+$odkdy = file_get_contents("lastakt.txt");
+file_put_contents("logfile.txt", "cas pouzity pro request  - " . $odkdy . "\n", FILE_APPEND);
 
 run($odkdy);
 
@@ -36,12 +37,20 @@ function run($odkdy){
     //odkomentovat na uplne prvni spusteni    !!!!!!!!!!!!!!!!!
     //$data = getdata("", "");
     $data = getdata("", $odkdy);
+    $cont = date('Y-m-d') . "T" . date('H:i:s') . "Z";
+    file_put_contents("lastakt.txt", $cont);
+    
+    //$data = file_get_contents("temporary.xml");       //viz komentar pod
   }
+
+  //kvuli zaznamu, ktery nejni validni  !
+  //file_put_contents("temporary.xml", $data);
+  //exit;
 
   //podminka ktera po nacteni dat zapise do souboru atualni resumption token, nebo pokud neexistuje, tak soubor smaze
   if(!accept($data)){    
     file_put_contents("logfile.txt", "token nebyl zapsan do souboru!  - " . date('Y-m-d') . "\n", FILE_APPEND);
-    exit;    
+    //exit;    
   }
   //pojmenovani souboru tak, aby kazdy mel jine jmeno, zatim pomoci casove znamky. 
   //ukladani je pouze pro informaci a zalohu, protoze se rovnou uploadnou do virtuosa 
@@ -66,16 +75,16 @@ function uploadinit($file){
   if($configfile = fopen("config.ini", "r")){
     
     $endpointa = explode(" ", fgets($configfile));
-    $endpoint = $endpointa[1];    
+    $endpoint = trim($endpointa[1]);    
     $usera = explode(" ", fgets($configfile));
-    $user = $usera[1];    
+    $user = trim($usera[1]);    
     $pworda = explode(" ", fgets($configfile));
-    $pword = $pworda[1];    
+    $pword = trim($pworda[1]);    
     $grapha = explode(" ", fgets($configfile));
-    $graph = $grapha[1];      
+    $graph = trim($grapha[1]);      
     fclose($configfile); 
     
-    //data se nejakym zpusobem nepredavaji, nebo ve spatnem formatu. http response 401 (unauthorized)   
+       
   }
   else {
     file_put_contents("logfile.txt", "nepodarila se nacist konfigurace uploadu \n", FILE_APPEND);

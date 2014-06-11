@@ -1,1 +1,0 @@
-c:\Program Files\OpenLink Software\Virtuoso 6.4\bin\isql.exe dump_one_graph ('urn:test', './data_', 1000000000);

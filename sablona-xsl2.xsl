@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/" xmlns:biro="http://purl.org/spar/biro/" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:ld="http://ld.opendata.cz/resource/nusl" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"  version='2.0' exclude-result-prefixes="p oai_dc dcc"> 
-<xsl:output method="xml" indent="yes" encoding="utf-8" />
-  <xsl:variable name="myuri">http://ld.opendata.cz/resource/nusl/</xsl:variable>
+<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/" xmlns:biro="http://purl.org/spar/biro/" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:ld="http://linked.opendata.cz/resource/dataset/nusl.cz/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"  version='2.0' exclude-result-prefixes="p oai_dc dcc"> 
+<xsl:output method="xml" indent="yes" encoding="utf-8" normalization-form="NFC" />
+  <xsl:variable name="myuri">http://linked.opendata.cz/resource/dataset/nusl.cz/</xsl:variable>
   <xsl:variable name="myrec">bibliographic-record/</xsl:variable>
   <xsl:variable name="myexp">expression/</xsl:variable>
 
@@ -68,9 +68,9 @@
         <!-- nejaky lepsi typ, s prolinkovanim -->
         <xsl:value-of select="dcc:type" />
       </dcterms:type>
-      <dcterms:language>
-        <xsl:value-of select="dcc:language" />
-      </dcterms:language>
+      
+      <xsl:apply-templates select="dcc:language" />
+      
     </bibo:Document> 
   </xsl:template>
     
@@ -85,6 +85,19 @@
      </dcterms:subject>
    </xsl:for-each>
    
+ </xsl:template>
+
+ <xsl:template match="dcc:language[string-length() != 0]">
+  <xsl:variable name="language">
+   <xsl:value-of select="." />
+  </xsl:variable>
+   
+  <xsl:for-each select="distinct-values(tokenize($language, ' '))">
+   <dcterms:language>
+     <xsl:value-of select="." />
+   </dcterms:language>
+  </xsl:for-each>
+  
  </xsl:template>
 
 
