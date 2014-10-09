@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dcterms="http://purl.org/dc/terms/"
-         xmlns:biro="http://purl.org/spar/biro/"
-         xmlns:bibo="http://purl.org/ontology/bibo/"
+<rdf:RDF xmlns:biro="http://purl.org/spar/biro/" xmlns:bibo="http://purl.org/ontology/bibo/"
          xmlns:ld="http://linked.opendata.cz/resource/dataset/nusl.cz/"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dcterms="http://purl.org/dc/terms/">
    <biro:BibliographicRecord rdf:about="http://linked.opendata.cz/resource/dataset/nusl.cz/bibliographic-record/136647">
       <dcterms:identifier>136647</dcterms:identifier>
       <biro:references rdf:resource="http://linked.opendata.cz/resource/dataset/nusl.cz/expression/136647"/>
@@ -19,65 +18,64 @@
       <dcterms:contributor>Buchalcevová, Alena</dcterms:contributor>
       <dcterms:contributor>Bucek, Jindřich</dcterms:contributor>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#��S��">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/%C4%8CS%C3%9A">
             <skos:prefLabel>ČSÚ</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#kvalita">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/kvalita">
             <skos:prefLabel>kvalita</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#management kvality">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/management%20kvality">
             <skos:prefLabel>management kvality</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#TQM">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/TQM">
             <skos:prefLabel>TQM</skos:prefLabel>
          </skos:Concept>
-      </dcterms:subject>        
+      </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#EFQM">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/EFQM">
             <skos:prefLabel>EFQM</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#sebehodnocen��">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/sebehodnocen%C3%AD">
             <skos:prefLabel>sebehodnocení</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#anketa">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/anketa">
             <skos:prefLabel>anketa</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#quality">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/quality">
             <skos:prefLabel>quality</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#quality management">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/quality%20management">
             <skos:prefLabel>quality management</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#self-image">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/self-image">
             <skos:prefLabel>self-image</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
       <dcterms:subject>
-         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntk.cz/#survey">
+         <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/survey">
             <skos:prefLabel>survey</skos:prefLabel>
          </skos:Concept>
       </dcterms:subject>
-      <dcterms:description>In the thesis there is described increasing importance of quality and quality management. One of the conception of quality management is Total quality management. The european method of TQM is the Excelence model EFQM. It��s an instrument for complex control of quality. The thesis describes an aplication of the model in ��S�� and compares the results, which has the organization reached till 2002.</dcterms:description>
+      <dcterms:description>In the thesis there is described increasing importance of quality and quality management. One of the conception of quality management is Total quality management. The european method of TQM is the Excelence model EFQM. It´s an instrument for complex control of quality. The thesis describes an aplication of the model in ČSÚ and compares the results, which has the organization reached till 2002.</dcterms:description>
       <dcterms:publisher>Vysoká škola ekonomická v Praze</dcterms:publisher>
       <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-04-30</dcterms:created>
       <dcterms:type>info:eu-repo/semantics/masterThesis</dcterms:type>
       <dcterms:language>cze</dcterms:language>
    </bibo:Document>
-   
 </rdf:RDF>
