@@ -13,3 +13,4 @@ SELECT DISTINCT ?ident {
   }
   FILTER (?count >= 2)
 }
+LIMIT 1000
