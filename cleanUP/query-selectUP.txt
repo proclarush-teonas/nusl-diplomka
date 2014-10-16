@@ -1,0 +1,15 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX biro: <http://purl.org/spar/biro/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?ident {
+  {
+    SELECT ?s (COUNT(?o) AS ?count) ?ident WHERE {
+      ?s rdf:type biro:BibliographicRecord.
+      ?s dcterms:created ?o.
+      ?s dcterms:identifier ?ident.
+    }
+    GROUP BY ?s ?ident
+  }
+  FILTER (?count >= 2)
+}
