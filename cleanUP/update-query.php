@@ -7,28 +7,10 @@ deletethem();
 
 
 function deletethem() {
-  $idlist = array();
-  $idlist = findthem();
-  //$idlist[] = 4; 
 
-
-  foreach($idlist as $singleID) {
-
-    $querystring = "
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX biro: <http://purl.org/spar/biro/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-WITH <urn:nusl> DELETE {
-?s dcterms:created ?o.
-}
-WHERE {
-?s rdf:type biro:BibliographicRecord.
-?s dcterms:created ?o.
-?s dcterms:created ?p.
-?s dcterms:identifier '". $singleID ."'.
-FILTER (?o != ?p && ?p > ?o)
-}";
+  $count = findthem();
+  if ($count > 0){
+    $querystring = file_get_contents(__DIR__ . "\\query-deleteUP.ru");
 
     $response = uploadinit($querystring, 0);
 
@@ -43,7 +25,7 @@ FILTER (?o != ?p && ?p > ?o)
 }
 
 function findthem() {
-  $file = "query-selectUP.txt";
+  $file = "query-selectUP.ru";
   $res = uploadinit($file, 1);
   $resu = explode("<sparql", $res);
   $resul =  "<sparql" . $resu[1];
@@ -60,9 +42,10 @@ function findthem() {
   foreach ($xmlresult->getElementsByTagName('literal') as $singleID) {
     $idlist[] = $singleID->nodeValue;
   }
+  $count = count($idlist);
+  file_put_contents("logfileUP.txt", "\n pocet polozek ke smazani: " . $count, FILE_APPEND);
   
-  //file_put_contents("logfileUP.txt", "\n pocet polozek v listu: " . count($idlist), FILE_APPEND);
-  return $idlist;  
+  return $count;  
 }
 
 function uploadinit($file, $flag){
