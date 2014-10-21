@@ -12,16 +12,24 @@ include "upload.php";
 
 
 
-//priprava na parametr posledni aktualizace - pravdepodobne si budu ukladat do souboru cas posledni zmeny, a potom si ho nactu
-//$odkdy = time() - (60*60*24*7);
-$odkdy = file_get_contents("lastakt.txt");
-file_put_contents("logfile.txt", "cas pouzity pro request  - " . $odkdy . "\n", FILE_APPEND);
 
-run($odkdy);
+
+run(0);
 
 
 //funkce obsluhujici prubeh transformace, pomoci if podminek vypisuje stavy
-function run($odkdy){
+function run($opakovani){
+
+  file_put_contents("logfile.txt", "prubeh cislo: " . $opakovani . "\n", FILE_APPEND);
+  if ($opakovani >= 10){
+    exit;    
+  }
+  
+  //parametr posledni aktualizace
+  //$odkdy = time() - (60*60*24*7);
+  $odkdy = file_get_contents("lastakt.txt");
+  file_put_contents("logfile.txt", "cas pouzity pro request  - " . $odkdy . "\n", FILE_APPEND);
+
   $rtoken = "";
   //podminka pro prvotni nacitani cele databaze, pro aktualizace nebude potreba
   if(file_exists("resumptiontoken.txt")){
@@ -66,8 +74,19 @@ function run($odkdy){
   }
   
   //nastaveni parametru pro upload a jeho spusteni
-  uploadinit($file);
-
+  if(!uploadinit($file)){
+    exit;
+  }
+  else {
+    $istoken = file_get_contents("resumptiontoken.txt");
+    if (strlen($istoken) >0) {
+      $opakovani += 1;
+      run($opakovani);
+    }
+    else {
+      exit;
+    }
+  }
 }
 
 //ve funkci se nastavuji parametry uploadu dat
@@ -92,8 +111,17 @@ function uploadinit($file){
   }
   
   $data = file_get_contents(__DIR__ . "\\" . $file);
-  upload($endpoint, $user, $pword, $data, $graph);
+  $response = upload($endpoint, $user, $pword, $data, $graph);
+  
+  if (strpos($response, "200 OK") !== false){
+    file_put_contents("logfile.txt", "data nahrana do virtuosa \n", FILE_APPEND);
+    return true;    
   }
+  else {
+    file_put_contents("logfile.txt", "chyba pri nahravani dat do virtuosa \n", FILE_APPEND);
+    return false;
+  }
+}
 
 //funkce nacitajici zaznamy z nuslu, budto od zacatku, 
 //nebo od mista predchoziho ukonceni podle resumption tokenu, nebo od daneho casu (v pripade aktualizace)
@@ -124,8 +152,14 @@ function getdata($token, $cas){
 function accept($data){
   
   $xml = new DOMDocument('1.0', 'UTF-8');  
-  $xml->loadXML($data);
-  
+  try {
+    $xml->loadXML($data);
+  }
+  catch(Exception $e) {
+    file_put_contents("logfile.txt", "nevalidni xml data. Data ulozena do souboru: temporary.xml \n", FILE_APPEND);
+    file_put_contents("temporary.xml", $data);
+    exit;
+  }
   $tokenvalue = "";
   $tokens = $xml->getElementsByTagName('resumptionToken');
   

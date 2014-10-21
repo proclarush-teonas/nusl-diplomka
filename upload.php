@@ -26,7 +26,8 @@
     curl_setopt_array( $ch, $options );
 
     $response = curl_exec( $ch );
-    file_put_contents("logfile.txt", $response . "************** \n", FILE_APPEND);
+    //file_put_contents("logfile.txt", $response . "************** \n", FILE_APPEND);
+    return $response;
     
   }
 

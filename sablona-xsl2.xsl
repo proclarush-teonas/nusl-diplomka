@@ -79,9 +79,8 @@
         <xsl:value-of select="dcc:description" />
       </dcterms:description>      
       
-      <dcterms:publisher>
-        <xsl:value-of select="dcc:publisher" />
-      </dcterms:publisher>
+      <xsl:apply-templates select="dcc:publisher" />
+      
             
       <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
         <xsl:analyze-string select="dcc:date" regex="[0-9-]">
@@ -125,6 +124,12 @@
   </dcterms:contributor>
  </xsl:template>
 
+ <xsl:template match="dcc:publisher">
+  <dcterms:publisher>
+    <xsl:value-of select="." />
+  </dcterms:publisher>
+ </xsl:template>
+       
  <xsl:template match="dcc:language[string-length() != 0]">
   <xsl:variable name="language">
    <xsl:value-of select="." />
