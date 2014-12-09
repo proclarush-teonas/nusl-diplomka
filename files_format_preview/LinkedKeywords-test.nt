@@ -1,0 +1,2 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+<http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/Judicial%20Administration>  <http://www.w3.org/2002/07/owl#sameAs>  <http://psh.ntkcz.cz/skos/PSH5117> .

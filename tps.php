@@ -54,7 +54,7 @@ function run($opakovani){
   //kvuli zaznamu, ktery nejni validni  !
   //file_put_contents("temporary.xml", $data);
   //exit;
-
+  
   //podminka ktera po nacteni dat zapise do souboru atualni resumption token, nebo pokud neexistuje, tak soubor smaze
   if(!accept($data)){    
     file_put_contents("logfile.txt", "token nebyl zapsan do souboru!  - " . date('Y-m-d') . "\n", FILE_APPEND);
@@ -118,7 +118,7 @@ function uploadinit($file){
     return true;    
   }
   else {
-    file_put_contents("logfile.txt", "chyba pri nahravani dat do virtuosa \n", FILE_APPEND);
+    file_put_contents("logfile.txt", "chyba pri nahravani dat do virtuosa \n" . $response, FILE_APPEND);
     return false;
   }
 }

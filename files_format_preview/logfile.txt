@@ -1,82 +1,177 @@
-token nebyl zapsan do souboru!  - 2014-02-25
-token nebyl zapsan do souboru!  - 2014-02-25
-data ulozena do souboru: 1393333930.xml
+prubeh cislo: 0
+cas pouzity pro request  - 1970-01-01T21:10:14Z
+data ulozena do souboru: 1418064590.xml
+chyba pri nahravani dat do virtuosa 
 HTTP/1.1 401 Unauthorized
-Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+Server: Virtuoso/06.01.3127 (Win32) i686-generic-win-32  
 Connection: close
 Content-Type: text/html; charset=UTF-8
-Date: Tue, 25 Feb 2014 13:12:12 GMT
+Date: Mon, 08 Dec 2014 18:49:53 GMT
 Accept-Ranges: bytes
-WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="91bdf6c91d19946af9bb582329328cc6", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
+WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="f358aa0ff0a91b0c2d6bb95858219898", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
 Content-Length: 0
 
 HTTP/1.1 100 Continue
 
-HTTP/1.1 200 OK
-Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+HTTP/1.1 201 Created
+Server: Virtuoso/06.01.3127 (Win32) i686-generic-win-32  
 Connection: Keep-Alive
 Content-Type: text/html; charset=UTF-8
-Date: Tue, 25 Feb 2014 13:12:12 GMT
+Date: Mon, 08 Dec 2014 18:49:56 GMT
 Accept-Ranges: bytes
 Content-Length: 0
 
-************** 
-token pouzity ke stazeni dat  - 9c054521528fe8b6e77daeb3df3727cb
-data ulozena do souboru: 1393334060.xml
+prubeh cislo: 0
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___OBXxZ0
+data ulozena do souboru: 1418064668.xml
+data nahrana do virtuosa 
+prubeh cislo: 1
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___cflKdy
+data ulozena do souboru: 1418064685.xml
+data nahrana do virtuosa 
+prubeh cislo: 2
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___CecHzH
+data ulozena do souboru: 1418064703.xml
+data nahrana do virtuosa 
+prubeh cislo: 3
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___z72Pol
+data ulozena do souboru: 1418064720.xml
+data nahrana do virtuosa 
+prubeh cislo: 4
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___vHr6vb
+data ulozena do souboru: 1418064734.xml
+data nahrana do virtuosa 
+prubeh cislo: 5
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+nepovedlo se ziskat data!  - 2014-12-08
+prubeh cislo: 0
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___0j9bhK
+data ulozena do souboru: 1418072532.xml
+data nahrana do virtuosa 
+prubeh cislo: 1
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ____YUKnN
+data ulozena do souboru: 1418072557.xml
+data nahrana do virtuosa 
+prubeh cislo: 2
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___ifnvnX
+data ulozena do souboru: 1418072575.xml
+data nahrana do virtuosa 
+prubeh cislo: 3
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___4d4hm9
+data ulozena do souboru: 1418072592.xml
+chyba pri nahravani dat do virtuosa 
 HTTP/1.1 401 Unauthorized
-Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+Server: Virtuoso/06.01.3127 (Win32) i686-generic-win-32  
 Connection: close
 Content-Type: text/html; charset=UTF-8
-Date: Tue, 25 Feb 2014 13:14:21 GMT
+Date: Mon, 08 Dec 2014 21:03:15 GMT
 Accept-Ranges: bytes
-WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="8208d39d0545a415b9aec7644f1e2ea5", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
+WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="c18cd4527d8ecff34d72aeda029857f1", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
 Content-Length: 0
 
 HTTP/1.1 100 Continue
 
-HTTP/1.1 200 OK
-Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
+HTTP/1.1 500 Internal Server Error
+Server: Virtuoso/06.01.3127 (Win32) i686-generic-win-32  
 Connection: Keep-Alive
 Content-Type: text/html; charset=UTF-8
-Date: Tue, 25 Feb 2014 13:14:22 GMT
+Date: Mon, 08 Dec 2014 21:03:16 GMT
 Accept-Ranges: bytes
-Content-Length: 0
+Content-Length: 280
 
-************** 
-nepovedlo se ziskat data!  - 2014-02-25
-data ulozena do souboru: 1393939773.xml
-token pouzity ke stazeni dat  - 003846b9d1938a9bbe68de48a1fdc110
-data ulozena do souboru: 1393940413.xml
-token pouzity ke stazeni dat  - 7db91ef624fe15d74b25c0a63cb1dd81
-data ulozena do souboru: 1393940713.xml
-token pouzity ke stazeni dat  - a2ef0dbca60081db6442b753bf2b99b0
-data ulozena do souboru: 1393941014.xml
-token pouzity ke stazeni dat  - 265467964a2752da0eeb0b623a45c347
-data ulozena do souboru: 1393941315.xml
-token pouzity ke stazeni dat  - 4e25add9ca8e869215a0388353ccdde0
-data ulozena do souboru: 1393941614.xml
-token pouzity ke stazeni dat  - f946a88f01b5579345eab5fc77ad35e0
-data ulozena do souboru: 1393941912.xml
-token pouzity ke stazeni dat  - 8e5c44a57b6fdb69355308c1ba4cb9fa
-data ulozena do souboru: 1393943669.xml
-HTTP/1.1 401 Unauthorized
-Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
-Connection: close
-Content-Type: text/html; charset=UTF-8
-Date: Tue, 04 Mar 2014 14:34:30 GMT
-Accept-Ranges: bytes
-WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="c781db1d838401504b6bd39f4dd5151f", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
-Content-Length: 0
-
-HTTP/1.1 100 Continue
-
-HTTP/1.1 401 Unauthorized
-Server: Virtuoso/06.04.3132 (Win32) i686-generic-win-32  VDB
-Connection: close
-Content-Type: text/html; charset=UTF-8
-Date: Tue, 04 Mar 2014 14:34:31 GMT
-Accept-Ranges: bytes
-WWW-Authenticate: Digest realm="SPARQL", domain="/sparql-graph-crud-auth", nonce="d62e57694590bde1de00b506d8c0d8b3", opaque="5ebe2294ecd0e0f08eab7690d2a6ee69", stale="false", qop="auth", algorithm="MD5"
-Content-Length: 0
-
-************** 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Error 23000</title>
+  </head>
+  <body>
+    <h3>Error 23000</h3><pre>
+SR175: Uniqueness violation : Violating unique index RDF_QUAD_POGS on table DB.DBA.RDF_QUAD. Transaction killed.
+  </pre></body>
+</html>
+prubeh cislo: 0
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___pSgj9f
+data ulozena do souboru: 1418076594.xml
+data nahrana do virtuosa 
+prubeh cislo: 1
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___Mp7z7F
+data ulozena do souboru: 1418076608.xml
+data nahrana do virtuosa 
+prubeh cislo: 2
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___qv7XaR
+data ulozena do souboru: 1418076622.xml
+data nahrana do virtuosa 
+prubeh cislo: 3
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___rF7Qmx
+data ulozena do souboru: 1418076635.xml
+data nahrana do virtuosa 
+prubeh cislo: 4
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___SOTD87
+data ulozena do souboru: 1418076650.xml
+data nahrana do virtuosa 
+prubeh cislo: 5
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___kT52Uv
+data ulozena do souboru: 1418076663.xml
+data nahrana do virtuosa 
+prubeh cislo: 6
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___mYHe8T
+data ulozena do souboru: 1418076677.xml
+data nahrana do virtuosa 
+prubeh cislo: 7
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___PONjQU
+data ulozena do souboru: 1418076694.xml
+data nahrana do virtuosa 
+prubeh cislo: 8
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___BY5pyq
+data ulozena do souboru: 1418076716.xml
+data nahrana do virtuosa 
+prubeh cislo: 9
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___mOUiBJ
+data ulozena do souboru: 1418076736.xml
+data nahrana do virtuosa 
+prubeh cislo: 10
+prubeh cislo: 0
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___VeTZGU
+data ulozena do souboru: 1418076770.xml
+data nahrana do virtuosa 
+prubeh cislo: 1
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___RBGQOT
+data ulozena do souboru: 1418076787.xml
+data nahrana do virtuosa 
+prubeh cislo: 2
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___AFtkRO
+data ulozena do souboru: 1418076803.xml
+data nahrana do virtuosa 
+prubeh cislo: 3
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token pouzity ke stazeni dat  - ___r4x40L
+token nebyl zapsan do souboru!  - 2014-12-08
+data ulozena do souboru: 1418076814.xml
+data nahrana do virtuosa 
+prubeh cislo: 0
+cas pouzity pro request  - 2014-12-08T18:49:50Z
+token nebyl zapsan do souboru!  - 2014-12-08
+data ulozena do souboru: 1418076926.xml
+data nahrana do virtuosa 

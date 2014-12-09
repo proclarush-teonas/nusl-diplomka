@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/" xmlns:biro="http://purl.org/spar/biro/" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:ld="http://linked.opendata.cz/resource/dataset/nusl.cz/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:wt="http://whatever"  version='2.0' exclude-result-prefixes="p oai_dc dcc wt"> 
+<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' xmlns:p="http://www.openarchives.org/OAI/2.0/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcc="http://purl.org/dc/elements/1.1/" xmlns:biro="http://purl.org/spar/biro/" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:ld="http://linked.opendata.cz/resource/dataset/nusl.cz/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:contributor="http://linked.opendata.cz/resource/dataset/nusl.cz/contributors" xmlns:wt="http://whatever"  version='2.0' exclude-result-prefixes="p oai_dc dcc wt"> 
 <xsl:output method="xml" indent="yes" encoding="utf-8" normalization-form="NFC" />
 
 <xsl:function name="wt:uri-encode">
@@ -9,6 +9,7 @@
   
   <xsl:variable name="myuri">http://linked.opendata.cz/resource/dataset/nusl.cz/</xsl:variable>
   <xsl:variable name="pshuri">http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/</xsl:variable>
+  <xsl:variable name="conturi">http://linked.opendata.cz/resource/dataset/nusl.cz/contributors/</xsl:variable>
   <xsl:variable name="myrec">bibliographic-record/</xsl:variable>
   <xsl:variable name="myexp">expression/</xsl:variable>
 
@@ -119,9 +120,11 @@
  </xsl:template>
  
  <xsl:template match="dcc:contributor">
-  <dcterms:contributor>
-   <xsl:value-of select="." />
-  </dcterms:contributor>
+  <xsl:variable name="cont">
+    <xsl:value-of select="wt:uri-encode(.)" />
+  </xsl:variable>
+  <dcterms:contributor rdf:resource="{$conturi}{$cont}" />
+
  </xsl:template>
 
  <xsl:template match="dcc:publisher">

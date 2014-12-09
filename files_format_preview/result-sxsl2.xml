@@ -15,8 +15,8 @@
       <rdfs:seeAlso rdf:resource="http://www.nusl.cz/ntk/nusl-136647"/>
       <dcterms:title>Aplikace Modelu excelence EFQM ve vybrané organizaci</dcterms:title>
       <dcterms:creator>ROZSYPALOVÁ, Antonie</dcterms:creator>
-      <dcterms:contributor>Buchalcevová, Alena</dcterms:contributor>
-      <dcterms:contributor>Bucek, Jindřich</dcterms:contributor>
+      <dcterms:contributor rdf:resource="http://linked.opendata.cz/resource/dataset/nusl.cz/contributors/Buchalcevov%C3%A1%2C%20Alena"/>
+      <dcterms:contributor rdf:resource="http://linked.opendata.cz/resource/dataset/nusl.cz/contributors/Bucek%2C%20Jind%C5%99ich"/>
       <dcterms:subject>
          <skos:Concept rdf:about="http://linked.opendata.cz/resource/dataset/psh.ntkcz.cz/%C4%8CS%C3%9A">
             <skos:prefLabel>ČSÚ</skos:prefLabel>

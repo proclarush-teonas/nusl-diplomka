@@ -7,6 +7,8 @@ include "uploadUP.php";
 deletethem("query-selectUP.ru", "query-deleteUP.ru");
 //volani metody mazani zaznamu s cilem najit trojice obsahujici prazdny objekt a smazat je
 deletethem("query-select-empty.ru", "query-delete-empty.ru");
+//volani metody mazani zaznamu s cilem najit trojice s neplatnymi jmeny v dcterms:contributor a smazat je
+deletethem("query-select-contributor.ru", "query-delete-contributor.ru");
 
 
 //funkce ktera nacita query, necha ho zpracovat pomoci funkce uploadinit a vypisuje vysledek do logu
@@ -41,8 +43,15 @@ function findthem($queryS) {
     exit;
   }
   $idlist = array();
-  foreach ($xmlresult->getElementsByTagName('literal') as $singleID) {
-    $idlist[] = $singleID->nodeValue;
+  if($queryS == "query-select-contributor.ru"){
+    foreach ($xmlresult->getElementsByTagName('uri') as $singleID) {
+      $idlist[] = $singleID->nodeValue;
+    }
+  }
+  else {
+    foreach ($xmlresult->getElementsByTagName('literal') as $singleID) {
+      $idlist[] = $singleID->nodeValue;
+    }
   }
   $count = count($idlist);
   file_put_contents("logfileUP.txt", "\n pocet polozek ke smazani: " . $count, FILE_APPEND);
